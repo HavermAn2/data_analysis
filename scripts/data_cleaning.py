@@ -17,7 +17,7 @@ print(gdp.isnull().sum())
 gdp = gdp.drop_duplicates()
 
 # Fill missing values with 'Unknown'
-gdp = gdp.fillna("Unknown")
+gdp = gdp.fillna(0)
 
 # Preview cleaned data
 print("Cleaned data preview:")
