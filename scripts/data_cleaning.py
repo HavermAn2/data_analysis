@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load the CSV file
-gdp = pd.read_csv("./data/GDP Data.csv")
+gdp = pd.read_csv("./data/clean_gdp.csv")
 
 # Preview the first 5 rows
 print(gdp.head())
