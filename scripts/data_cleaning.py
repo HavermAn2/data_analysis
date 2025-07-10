@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load the CSV file
-gdp = pd.read_csv("./data/GDP Data.csv")
+gdp = pd.read_csv("./data/clean_gdp.csv")
 
 # Preview the first 5 rows
 print(gdp.head())
@@ -19,6 +19,8 @@ gdp = gdp.drop_duplicates()
 # Fill missing values with 'Unknown'
 gdp = gdp.fillna(0)
 
+gdp = gdp.replace({ ',': '', ' ': ''}, regex=True)
+gdp.columns = [col.strip().lower().replace(' ', '_') for col in gdp.columns]
 # Preview cleaned data
 print("Cleaned data preview:")
 print(gdp.head())
