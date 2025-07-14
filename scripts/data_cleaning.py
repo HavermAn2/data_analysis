@@ -17,8 +17,10 @@ print(gdp.isnull().sum())
 gdp = gdp.drop_duplicates()
 
 # Fill missing values with 'Unknown'
-gdp = gdp.fillna("Unknown")
+gdp = gdp.fillna(0)
 
+gdp = gdp.replace({ ',': '', ' ': ''}, regex=True)
+gdp.columns = [col.strip().lower().replace(' ', '_') for col in gdp.columns]
 # Preview cleaned data
 print("Cleaned data preview:")
 print(gdp.head())
